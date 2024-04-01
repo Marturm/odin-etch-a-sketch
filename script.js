@@ -8,8 +8,8 @@ function fillContainer(num) {
     (num > 100) && (num = 100);
     (num < 1) && (num = 1);
 
-    squareWitdh = container.offsetWidth / num + "px";
-    squareHeight = container.offsetHeight / num + "px";
+    squareWitdh = container.clientWidth / num + "px";
+    squareHeight = container.clientHeight / num + "px";
 
     for(let i = 0; i < num ** 2; i++) {
         const square = document.createElement("div")
@@ -28,5 +28,15 @@ function clearContainer() {
     });
 }
 
-fillContainer(16);
+function setupColors(){
+    const squares = document.querySelectorAll(".square");
+    squares.forEach((square) => {
+        square.addEventListener("mouseover", (event) => {
+            event.target.style.backgroundColor = "black";
+            console.log(event);
+        });
+    });   
+}
 
+fillContainer(16);
+setupColors();
