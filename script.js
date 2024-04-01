@@ -16,6 +16,7 @@ function fillContainer(num) {
         square.classList.add("square")
         square.style.width = squareWitdh;
         square.style.height = squareHeight;
+        square.style.opacity = 1
         container.appendChild(square);
     }
 }
@@ -33,9 +34,9 @@ function setupHover(){
     squares.forEach((square) => {
         square.addEventListener("mouseover", (event) => {
             const color = "#" + Math.floor(Math.random()*16777215).toString(16);
-
-            event.target.style.backgroundColor || (event.target.style.backgroundColor = color)
-
+            (event.target.style.backgroundColor)? 
+                event.target.style.opacity -= 0.1  : 
+                event.target.style.backgroundColor = color;
         });
     });   
 }
