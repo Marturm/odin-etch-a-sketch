@@ -20,5 +20,5 @@ button {
 .square {
     box-sizing: border-box;
     background-color: white;
-    border: 1px solid grey;
+    /* border: 1px solid grey; */
 }

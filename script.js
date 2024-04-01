@@ -32,8 +32,10 @@ function setupHover(){
     const squares = document.querySelectorAll(".square");
     squares.forEach((square) => {
         square.addEventListener("mouseover", (event) => {
-            event.target.style.backgroundColor = "black";
-            console.log(event);
+            const color = "#" + Math.floor(Math.random()*16777215).toString(16);
+
+            event.target.style.backgroundColor || (event.target.style.backgroundColor = color)
+
         });
     });   
 }
