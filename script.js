@@ -3,6 +3,8 @@ container.style.width = "960px";
 container.style.height = "960px";
 
 function fillContainer(num) {
+    clearContainer();
+
     (num > 100) && (num = 100);
     (num < 1) && (num = 1);
 
@@ -18,4 +20,13 @@ function fillContainer(num) {
     }
 }
 
+function clearContainer() {
+    const squares = document.querySelectorAll(".square");
+
+    squares.forEach((square) => {
+        container.removeChild(square);
+    });
+}
+
 fillContainer(16);
+
