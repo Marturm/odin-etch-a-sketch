@@ -1,10 +1,10 @@
 const container = document.querySelector(".container");
+const btn = document.querySelector("button");
+
 container.style.width = "960px";
 container.style.height = "960px";
 
 function fillContainer(num) {
-    clearContainer();
-
     (num > 100) && (num = 100);
     (num < 1) && (num = 1);
 
@@ -28,7 +28,7 @@ function clearContainer() {
     });
 }
 
-function setupColors(){
+function setupHover(){
     const squares = document.querySelectorAll(".square");
     squares.forEach((square) => {
         square.addEventListener("mouseover", (event) => {
@@ -38,5 +38,14 @@ function setupColors(){
     });   
 }
 
-fillContainer(16);
-setupColors();
+function setupGrid(num) {
+    clearContainer();
+    fillContainer(num);
+    setupHover();
+}
+
+btn.addEventListener("click", () => {
+    setupGrid(prompt("Choose a number of squares per side"));
+});
+
+setupGrid(16)
